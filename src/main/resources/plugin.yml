@@ -1,0 +1,9 @@
+name: ReFrame
+version: ${project.version}
+main: me.eereeska.reframe.ReFrame
+api-version: 1.16
+authors: [ eereeska ]
+description: Advanced ItemFrames
+permissions:
+  reframe.use:
+    default: op
