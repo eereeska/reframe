@@ -20,7 +20,7 @@ public class PlayerInteractAtEntityEventListener implements Listener {
     @EventHandler (ignoreCancelled = true, priority = EventPriority.HIGHEST)
     public void onItemFrameBreak(PlayerInteractEntityEvent e) {
         if (e.getRightClicked() instanceof ItemFrame) {
-            if (e.getPlayer().hasPermission("reframe.use")) {
+            if (e.getPlayer().hasPermission(plugin.getConfig().getString("permission", "reframe.use"))) {
                 if (e.getPlayer().isSneaking()) {
                     if (e.getPlayer().getInventory().getItemInMainHand().getType().equals(Material.AIR)) {
                         e.setCancelled(true);

@@ -1,3 +1,4 @@
+permission: "reframe.use"
 phrases:
   menu: "Menu"
   visibility: "§fVisibility"
