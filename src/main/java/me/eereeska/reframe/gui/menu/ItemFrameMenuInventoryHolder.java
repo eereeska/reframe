@@ -61,9 +61,25 @@ public class ItemFrameMenuInventoryHolder implements InventoryHolder {
         return item;
     }
 
+    public final ItemStack functionsIcon() {
+        final ItemStack item = new ItemStack(Material.REDSTONE);
+        final ItemMeta meta = item.getItemMeta();
+
+        if (meta == null) {
+            return item;
+        }
+
+        meta.setDisplayName(this.plugin.getConfig().getString("phrases.functions"));
+
+        item.setItemMeta(meta);
+
+        return item;
+    }
+
     public final void updateIcons() {
         this.inv.setItem(12, this.toggleVisibilityIcon());
         this.inv.setItem(14, this.toggleFixationIcon());
+//        this.inv.setItem(15, this.functionsIcon());
     }
 
     public final ItemFrame getItemFrame() {
