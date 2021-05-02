@@ -1,4 +1,6 @@
-permission: "reframe.use"
+permissions:
+  visibility: "reframe.toggle.visibility"
+  fixation: "reframe.toggle.fixation"
 phrases:
   menu: "Menu"
   visibility: "§fVisibility"
@@ -7,5 +9,3 @@ phrases:
   fixation: "§fFixation"
   fixed: "§aFixed"
   unfixed: "§cUnfixed"
-  functions: "Functions"
-  button-simulation: "§fButton Simulation"

@@ -1,7 +1,6 @@
 package me.eereeska.reframe;
 
 import me.eereeska.reframe.configs.ItemFrameConfig;
-import me.eereeska.reframe.listeners.ItemFrameFunctionsMenuInventoryClickListener;
 import me.eereeska.reframe.listeners.ItemFrameMenuInventoryClickListener;
 import me.eereeska.reframe.listeners.PlayerInteractAtEntityEventListener;
 import org.bukkit.plugin.PluginManager;
@@ -21,7 +20,6 @@ public final class ReFrame extends JavaPlugin {
 
         pm.registerEvents(new PlayerInteractAtEntityEventListener(this), this);
         pm.registerEvents(new ItemFrameMenuInventoryClickListener(this), this);
-        pm.registerEvents(new ItemFrameFunctionsMenuInventoryClickListener(this), this);
 
         getLogger().info("§aEnabled");
     }
