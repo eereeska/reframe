@@ -1,6 +1,6 @@
 name: ReFrame
 version: ${project.version}
 main: me.eereeska.reframe.ReFrame
-api-version: 1.16
+api-version: 1.17
 authors: [ eereeska ]
 description: Advanced ItemFrames
