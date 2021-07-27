@@ -1,6 +1,7 @@
 permissions:
   visibility: "reframe.toggle.visibility"
   fixation: "reframe.toggle.fixation"
+  clickthrough: "reframe.clickthrough"
 phrases:
   menu: "Menu"
   visibility: "§fVisibility"

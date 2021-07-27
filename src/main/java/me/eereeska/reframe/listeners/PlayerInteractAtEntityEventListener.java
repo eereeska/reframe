@@ -32,20 +32,18 @@ public class PlayerInteractAtEntityEventListener implements Listener {
             final Player p = e.getPlayer();
             final ItemFrame itemFrame = (ItemFrame) e.getRightClicked();
 
-            if (p.hasPermission(plugin.getConfig().getString("permissions.visibility")) || p.hasPermission(plugin.getConfig().getString("permissions.fixation"))) {
-                if (p.isSneaking()) {
-                    if (p.getInventory().getItemInMainHand().getType().equals(Material.AIR)) {
-                        e.setCancelled(true);
-                        p.openInventory(new ItemFrameMenuInventoryHolder(plugin, p, itemFrame).getInventory());
-                    }
-                } else {
-                    final Block blockBehind = itemFrame.getLocation().getBlock().getRelative(itemFrame.getFacing().getOppositeFace());
-                    final BlockState blockBehindState = blockBehind.getState();
+            if (p.isSneaking() && (p.hasPermission(plugin.getConfig().getString("permissions.visibility")) || p.hasPermission(plugin.getConfig().getString("permissions.fixation")))) {
+                if (p.getInventory().getItemInMainHand().getType().equals(Material.AIR)) {
+                    e.setCancelled(true);
+                    p.openInventory(new ItemFrameMenuInventoryHolder(plugin, p, itemFrame).getInventory());
+                }
+            } else if (p.hasPermission(plugin.getConfig().getString("permissions.clickthrough"))) {
+                final Block blockBehind = itemFrame.getLocation().getBlock().getRelative(itemFrame.getFacing().getOppositeFace());
+                final BlockState blockBehindState = blockBehind.getState();
 
-                    if (blockBehindState instanceof InventoryHolder && !itemFrame.isVisible()) {
-                        e.setCancelled(true);
-                        p.openInventory(((InventoryHolder) blockBehindState).getInventory());
-                    }
+                if (blockBehindState instanceof InventoryHolder && !itemFrame.isVisible()) {
+                    e.setCancelled(true);
+                    p.openInventory(((InventoryHolder) blockBehindState).getInventory());
                 }
             }
         }
